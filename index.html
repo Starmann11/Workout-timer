@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#111827" />
+  <title>Workout Timer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="app__header">
+      <h1>Workout Timer</h1>
+      <p class="app__subtitle">High-intensity interval training made simple</p>
+    </header>
+
+    <section class="display" aria-live="polite">
+      <div class="display__phase" id="phase">Ready</div>
+      <div class="display__time" id="time">00:00</div>
+      <div class="display__rounds">
+        Round <span id="currentRound">0</span> / <span id="totalRounds">0</span>
+      </div>
+    </section>
+
+    <section class="controls">
+      <button id="startBtn" class="btn btn--primary" type="button">Start</button>
+      <button id="pauseBtn" class="btn" type="button" disabled>Pause</button>
+      <button id="resetBtn" class="btn" type="button">Reset</button>
+    </section>
+
+    <section class="settings">
+      <h2>Settings</h2>
+      <div class="settings__grid">
+        <label class="field">
+          <span>Work (seconds)</span>
+          <input id="workInput" type="number" min="1" max="3600" value="30" />
+        </label>
+        <label class="field">
+          <span>Rest (seconds)</span>
+          <input id="restInput" type="number" min="0" max="3600" value="15" />
+        </label>
+        <label class="field">
+          <span>Rounds</span>
+          <input id="roundsInput" type="number" min="1" max="99" value="8" />
+        </label>
+        <label class="field">
+          <span>Prep (seconds)</span>
+          <input id="prepInput" type="number" min="0" max="60" value="5" />
+        </label>
+      </div>
+      <label class="toggle">
+        <input id="soundToggle" type="checkbox" checked />
+        <span>Enable sound cues</span>
+      </label>
+    </section>
+
+    <footer class="app__footer">
+      <p>Tip: Press <kbd>Space</kbd> to start/pause, <kbd>R</kbd> to reset.</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

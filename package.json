@@ -1,0 +1,26 @@
+{
+  "name": "workout-timer",
+  "version": "1.0.0",
+  "description": "A simple HIIT-style workout timer with configurable work/rest intervals, rounds, prep countdown, and sound cues.",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server . -p 8080 -c-1 -o",
+    "dev": "http-server . -p 8080 -c-1",
+    "serve": "http-server . -p 8080 -c-1"
+  },
+  "keywords": [
+    "workout",
+    "timer",
+    "hiit",
+    "interval",
+    "fitness"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
