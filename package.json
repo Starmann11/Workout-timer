@@ -1,26 +1,30 @@
 {
   "name": "workout-timer",
-  "version": "1.0.0",
-  "description": "A simple HIIT-style workout timer with configurable work/rest intervals, rounds, prep countdown, and sound cues.",
-  "main": "index.html",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "description": "A voice-guided rep counter with rest intervals, presets, and persistent settings.",
   "scripts": {
-    "start": "http-server . -p 8080 -c-1 -o",
-    "dev": "http-server . -p 8080 -c-1",
-    "serve": "http-server . -p 8080 -c-1"
+    "dev": "vite",
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run"
   },
-  "keywords": [
-    "workout",
-    "timer",
-    "hiit",
-    "interval",
-    "fitness"
-  ],
-  "author": "",
-  "license": "MIT",
+  "dependencies": {
+    "lucide-react": "^0.469.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
   "devDependencies": {
-    "http-server": "^14.1.1"
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "vite": "^5.4.11",
+    "vitest": "^2.1.8"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=18.0.0"
   }
 }

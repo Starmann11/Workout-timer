@@ -1,7 +1,6 @@
 {
+  "css.lint.unknownAtRules": "ignore",
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "liveServer.settings.port": 5500,
-  "liveServer.settings.root": "/",
   "files.eol": "\n"
 }

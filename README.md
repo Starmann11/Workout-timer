@@ -1,57 +1,41 @@
 # Workout Timer
 
-A simple, responsive HIIT-style workout timer built with vanilla HTML, CSS, and JavaScript — no frameworks required.
+A voice-guided rep counter: it counts aloud from a start number to an end number, takes a rest every N reps, and remembers your settings. Built with React, Vite, Tailwind CSS and lucide-react.
 
-## Features
-
-- Configurable **work**, **rest**, **prep**, and **round count**
-- Visual phase indicator (prep / work / rest / complete)
-- Audible cues at phase transitions and during the final 3-second countdown
-- Keyboard shortcuts: `Space` to start/pause, `R` to reset
-- Mobile-friendly responsive layout
-- Zero runtime dependencies (pure browser code)
-
-## Getting Started
-
-### Option 1 — Open the file directly
-
-Just open `index.html` in any modern browser.
-
-### Option 2 — Run via local dev server (recommended for Codespaces)
+## Run it
 
 ```bash
 npm install
-npm start
+npm run dev        # http://localhost:8080
 ```
 
-The app will be served at <http://localhost:8080> and the port is auto-forwarded in GitHub Codespaces.
+In GitHub Codespaces this happens automatically: dependencies install on create, the dev server starts on attach, and port 8080 opens in the preview.
 
-### Option 3 — GitHub Codespaces
+| Command           | What it does                        |
+| ----------------- | ----------------------------------- |
+| `npm run dev`     | Dev server with hot reload (8080)   |
+| `npm run build`   | Production build into `dist/`       |
+| `npm run preview` | Serve the production build          |
+| `npm test`        | Unit tests for the workout logic    |
 
-1. Click **Code → Create codespace on main**.
-2. The devcontainer runs `npm install` automatically.
-3. Run `npm start` and open the forwarded port preview.
+## Features
 
-## Project Structure
+- Presets (Standard, Fast burn, Slow build, HIIT, Tabata, Continuous) plus full control of range, direction, count interval, rest frequency/length and pre-start countdown
+- Spoken counts with voice, rate, pitch and volume controls; optional beep cues and a spoken 3-2-1 at the end of longer rests
+- Elapsed time and estimated time left, rest markers on the progress bar
+- Settings persist between visits (localStorage)
+- Keeps the screen awake while running; timers keep going in background tabs
+- Keyboard: `Space` play/pause, `R` reset, `S` settings, `Esc` closes settings
+- Accessible dialog, switches and sliders; respects reduced-motion
+
+## Project layout
 
 ```
-.
-├── .devcontainer/devcontainer.json   # Codespaces config
-├── .vscode/                          # Editor settings & recommended extensions
-├── index.html                        # App markup
-├── styles.css                        # Styling
-├── script.js                         # Timer logic
-├── package.json                      # Dev dependencies (http-server)
-└── README.md
+src/
+  WorkoutTimer.jsx        timer engine + main screen
+  components/             settings drawer and form controls
+  hooks/                  useSettings, useSpeech, useWakeLock
+  lib/workout.js          pure workout logic (tested in workout.test.js)
 ```
 
-## Scripts
-
-| Command       | Description                               |
-| ------------- | ----------------------------------------- |
-| `npm start`   | Serve on port 8080 and open in browser    |
-| `npm run dev` | Serve on port 8080 without opening        |
-
-## License
-
-MIT
+Speech uses the browser's Web Speech API, so available voices depend on your device. Mobile browsers only allow audio after a tap, which is why pressing Play is what enables sound.

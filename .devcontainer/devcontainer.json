@@ -1,6 +1,6 @@
 {
   "name": "Workout Timer",
-  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:22",
   "forwardPorts": [8080],
   "portsAttributes": {
     "8080": {
@@ -9,16 +9,18 @@
     }
   },
   "postCreateCommand": "npm install",
+  "postAttachCommand": "npm run dev",
   "customizations": {
     "vscode": {
       "extensions": [
-        "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode",
-        "ritwickdey.LiveServer"
+        "bradlc.vscode-tailwindcss",
+        "esbenp.prettier-vscode"
       ],
       "settings": {
+        "css.lint.unknownAtRules": "ignore",
         "editor.formatOnSave": true,
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "tailwindCSS.includeLanguages": { "javascript": "javascript", "javascriptreact": "javascriptreact" }
       }
     }
   }
